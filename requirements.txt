@@ -1,0 +1,17 @@
+pandas 
+
+pyspark 
+
+Kagglehub
+
+psycopg2-binary
+
+python-dotenv
+
+boto3
+
+apache-airflow
+
+awscli
+
+sqlalchemy

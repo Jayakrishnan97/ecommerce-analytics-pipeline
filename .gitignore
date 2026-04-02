@@ -1,0 +1,16 @@
+venv/
+
+.env
+
+__pycache__/
+
+logs/
+
+.aws/
+
+airflow.db
+
+data/
+extract/
+
+.DS_Store
