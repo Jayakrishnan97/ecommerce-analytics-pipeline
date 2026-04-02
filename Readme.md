@@ -1,47 +1,80 @@
-----------------------start------------------------------dimension table
-customer_id                 0
-customer_unique_id          0
-customer_zip_code_prefix    0
-customer_city               0
-customer_state              0
-dtype: int64
-----------------------end--------------------------------
+📊 E-commerce Analytics Pipeline
 
-----------------------start------------------------------fact table
-order_id                            0
-customer_id                         0
-order_purchase_timestamp            0
+🚀 Overview
 
-order_approved_at                 160
-order_delivered_carrier_date     1783
-order_delivered_customer_date    2965
-order_estimated_delivery_date       0
-order_status                        0
-dtype: int64
-----------------------end--------------------------------
+This project builds an end-to-end data engineering pipeline that processes e-commerce data and loads it into a structured data warehouse using a star schema.
 
-----------------------start------------------------------facttable
-price                  0
-freight_value          0
+The pipeline is orchestrated using Apache Airflow and integrates AWS S3 for intermediate storage and PostgreSQL as the data warehouse.
+
+🧱 Architecture
+
+Raw Data → Transform (Pandas) → S3 → PostgreSQL (Star Schema)
+
+🛠️ Tech Stack
+
+Python
+Pandas
+Apache Airflow
+AWS S3 (boto3)
+PostgreSQL
+SQLAlchemy
+
+📊 Data Model
+
+Fact Table
+fact_orders — transactional order data
+Dimension Tables
+dim_customers — customer details
+dim_products — product information
+
+⚙️ Pipeline Workflow
+
+Extract raw data
+Transform and clean data using Pandas
+Generate dimension and fact tables
+Perform data quality checks
+Upload cleaned data to S3
+Load data into PostgreSQL
+Schedule pipeline using Airflow
+
+🔥 Key Features
+
+Modular ETL design (separate transform & load layers)
+Airflow DAG orchestration
+Data quality validation
+Logging and error handling
+S3 integration for scalable storage
+Idempotent pipeline (safe re-runs)
+
+📂 Project Structure
+E_commerce_Analytics_Pipeline/
+│
+├── dags/                 # Airflow DAGs
+├── transform/            # Data transformation logic
+├── load/                 # Load to Postgres & S3
+├── config/               # DB configuration
+├── sql/                  # Table creation scripts
+├── main.py               # Local pipeline execution
+├── README.md
+└── .gitignore
 
 
-order_item_id          0
-product_id             0
-seller_id              0
-shipping_limit_date    0
+🚀 How to Run
+# run locally
+python main.py
 
-dtype: int64
-----------------------end--------------------------------
+# run via Airflow
+airflow standalone
 
-----------------------start------------------------------dimension table
-product_id                    0
-product_category_name         0
-product_name_length           0
-product_description_length    0
-product_photos_qty            0
-product_weight_g              0
-product_length_cm             0
-product_height_cm             0
-product_width_cm              0
-dtype: int64
-----------------------end--------------------------------
+
+🚀 Future Improvements
+
+Incremental data loading
+Partitioned data storage in S3
+Integration with BI tools
+Migration to cloud warehouse (Redshift / BigQuery)
+
+
+📌 Author
+
+Jaya Krishnan
